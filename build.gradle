@@ -1,0 +1,65 @@
+plugins {
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+archivesBaseName = 'transliteration-app'
+group = 'ee.transliteration'
+mainClassName = "${group}.Application"
+sourceCompatibility = jdkVersion
+targetCompatibility = jdkVersion
+version = applicationVersion
+
+dependencies {
+    implementation 'org.springdoc:springdoc-openapi-ui:1.5.12'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'com.ibm.icu:icu4j:69.1'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+shadowJar {
+    mergeServiceFiles()
+}
+
+jacoco {
+    toolVersion '0.8.7'
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+        xml.enabled false
+    }
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events 'failed', 'passed', 'skipped', 'standardError', 'standardOut'
+    }
+
+    jacoco {
+        classDumpDir file("${buildDir}/jacoco/classpathdumps")
+        destinationFile file("${buildDir}/jacoco/jacocoTest.exec")
+    }
+}
