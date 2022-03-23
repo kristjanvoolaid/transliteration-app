@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 @Validated
 public interface IcaoTransliterationApi {
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "icao", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(example = "Müller"))))
     String transliterateIcao(@RequestParam(value = "source", required = false) @NotEmpty @Schema(example = "Müller") String input);
 }
