@@ -27,7 +27,7 @@ public class IcaoTransliterationServiceTest {
     }
 
     @Test
-    void transliterateIsFuzzy_isAllowed() {
+    void transliterateIcao_isAllowed() {
         String testInput = "name";
         String testInputv2 = "äädikas";
         String testInputv3 = "jüri";
@@ -35,27 +35,27 @@ public class IcaoTransliterationServiceTest {
         String testInputv5 = "järveääres";
         String testInputv6 = "õunaäädikas";
 
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInput), "name");
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInputv2), "aeaedikas");
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInputv3), "jueri");
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInputv4), "jaeaeaeaer");
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInputv5), "jaerveaeaeres");
-        assertEquals(icaoTransliterationService.transliterateFuzzy(testInputv6), "ounaaeaedikas");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInput), "name");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInputv2), "aeaedikas");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInputv3), "jueri");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInputv4), "jaeaeaeaer");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInputv5), "jaerveaeaeres");
+        assertEquals(icaoTransliterationService.transliterateIcao(testInputv6), "ounaaeaedikas");
     }
 
     @Test
-    void transliterateIsFuzzy_notAllowed() {
+    void transliterateIcao_notAllowed() {
         String testInputv2 = "äädikas";
         String testInputv3 = "jüri";
         String testInputv4 = "jäääär";
         String testInputv5 = "järveääres";
         String testInputv6 = "õunaäädikas";
 
-        assertNotEquals(icaoTransliterationService.transliterateFuzzy(testInputv2), "äädikas");
-        assertNotEquals(icaoTransliterationService.transliterateFuzzy(testInputv3), "jüri");
-        assertNotEquals(icaoTransliterationService.transliterateFuzzy(testInputv4), "jäääär");
-        assertNotEquals(icaoTransliterationService.transliterateFuzzy(testInputv5), "järveääres");
-        assertNotEquals(icaoTransliterationService.transliterateFuzzy(testInputv6), "õunaäädikas");
+        assertNotEquals(icaoTransliterationService.transliterateIcao(testInputv2), "äädikas");
+        assertNotEquals(icaoTransliterationService.transliterateIcao(testInputv3), "jüri");
+        assertNotEquals(icaoTransliterationService.transliterateIcao(testInputv4), "jäääär");
+        assertNotEquals(icaoTransliterationService.transliterateIcao(testInputv5), "järveääres");
+        assertNotEquals(icaoTransliterationService.transliterateIcao(testInputv6), "õunaäädikas");
     }
 
     @Test

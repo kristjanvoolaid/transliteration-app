@@ -29,7 +29,7 @@ public class IcaoTransliteratorNamesTest {
     @Test
     void testNames() {
         for (String[] name : ICAO_NAMES) {
-            assertEquals(name[2], icaoTransliterationService.transliterateFuzzy(name[0].toUpperCase()));
+            assertEquals(name[2], icaoTransliterationService.transliterateIcao(name[0].toUpperCase()));
         }
     }
 }

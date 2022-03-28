@@ -31,7 +31,7 @@ public class IcaoTransliterationService {
         return Transliterator.createFromRules(name.toString(), String.join("", rules), Transliterator.FORWARD);
     }
 
-    public String transliterateFuzzy(String input) {
+    public String transliterateIcao(String input) {
         String transformed = transliterateMultinationalAndGyrllic(input);
         return applyNormalizationRules(transformed);
     }

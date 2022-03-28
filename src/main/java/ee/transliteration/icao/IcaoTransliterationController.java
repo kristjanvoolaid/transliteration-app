@@ -25,7 +25,7 @@ public class IcaoTransliterationController implements IcaoTransliterationApi {
 
     @Override
     public String transliterateIcao(String input) {
-        return icaoTransliterationService.transliterateFuzzy(input);
+        return icaoTransliterationService.transliterateIcao(input);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
