@@ -14,7 +14,7 @@ repositories {
 
 archivesBaseName = 'transliteration-app'
 group = 'ee.transliteration'
-mainClassName = "${group}.Application"
+mainClassName = "${group}.TransliterationApplication"
 sourceCompatibility = jdkVersion
 targetCompatibility = jdkVersion
 version = applicationVersion
