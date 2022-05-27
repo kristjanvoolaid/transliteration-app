@@ -24,11 +24,11 @@ public class TransliterationControllerTest {
     @Test
     void transliterateIcao_shouldReturn200() throws Exception {
         mockMvc.perform(
-                get("/api").param("source", "name")
+                get("/api/v1/icao").param("source", "name")
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
         mockMvc.perform(
-                get("/api").param("source", "äädikas")
+                get("/api/v1/icao").param("source", "äädikas")
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
