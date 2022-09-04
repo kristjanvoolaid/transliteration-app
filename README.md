@@ -17,8 +17,8 @@ Execute command in project root directory\
 Execute commands project root directory\
 ```./gradlew clean build```\
 ```docker build -t transliteration-app .```\
-```docker run -d -p 8080:8080 transliteration-app:1.0```\
+```docker run -d -p 8080:8080 transliteration-app```
 
 
 * Example for web profile\
-Make HTTP(S) request to URL ```app-domain.com/api/v1/source=testname```
+Make HTTP(S) request to URL ```app-domain.com/api/v1/icao?source=testname```
